@@ -12,7 +12,7 @@ public class FuncionarioServiceImpl extends FuncionarioServiceImplBase {
         var salario = switch (request.getCargo()) {
             case "operador" -> request.getSalario() * 1.2;
             case "programador" -> request.getSalario() * 1.18;
-            default -> 0.0;
+            default -> request.getSalario();
         };
 
         var response = FuncionarioResponse.newBuilder().setSalario(salario).build();
