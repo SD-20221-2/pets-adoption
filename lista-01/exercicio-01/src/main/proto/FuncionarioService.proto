@@ -1,6 +1,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
-package br.ufg.lista01.proto;
+package br.ufg.lista01.rpc;
 
 message FuncionarioRequest {
   string cargo = 1;
