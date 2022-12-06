@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.proto;
+
+message FuncionarioRequest {
+  string cargo = 1;
+  double salario = 2;
+}
+
+message FuncionarioResponse {
+  double salario = 1;
+}
+
+service FuncionarioService {
+  rpc recalcularSalario(FuncionarioRequest) returns (FuncionarioResponse);
+}
