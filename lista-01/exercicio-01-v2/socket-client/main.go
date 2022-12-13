@@ -30,12 +30,12 @@ var (
 
 func main() {
 	var (
-		limiter = rate.NewLimiter(10, MaxClients)
-		fail    = Int64ToPointer(0)
-		success = Int64ToPointer(0)
-		now     = time.Now()
+		ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
+		limiter     = rate.NewLimiter(10, MaxClients)
+		fail        = Int64ToPointer(0)
+		success     = Int64ToPointer(0)
+		now         = time.Now()
 	)
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	for i := 0; i < MaxClients; i++ {
 		go func(index int64) {
