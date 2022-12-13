@@ -17,11 +17,16 @@ const (
 	ServerPort = "9000"
 	ServerType = "tcp"
 	MaxClients = 10
+	SalarioMax = 1000
+	SalarioMin = 100
 )
 
-func Int64ToPointer(i int64) *int64 {
-	return &i
-}
+var (
+	cargos = map[int]string{
+		0: "operador",
+		1: "programador",
+	}
+)
 
 func main() {
 	var (
@@ -78,25 +83,17 @@ func sendRequest(limiter *rate.Limiter, index, fail, success *int64) {
 	atomic.AddInt64(index, 1)
 }
 
-var (
-	cargos = map[int]string{
-		0: "operador",
-		1: "programador",
-	}
-)
-
 func randCargo() string {
 	rand.Seed(time.Now().UnixNano())
 	return cargos[rand.Intn(2)]
 }
 
-const (
-	SalarioMax = 1000
-	SalarioMin = 100
-)
-
 func randSalario() int {
 	rand.Seed(time.Now().UnixNano())
 	salario := rand.Intn(SalarioMax-SalarioMin) + SalarioMin
 	return salario - (salario % 100)
+}
+
+func Int64ToPointer(i int64) *int64 {
+	return &i
 }
