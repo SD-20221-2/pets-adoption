@@ -7,7 +7,7 @@ public class FuncionarioImpl implements Funcionario {
         return switch (cargo) {
             case "operador" -> salario * 1.2;
             case "programador" -> salario * 1.18;
-            default -> 0;
+            default -> salario;
         };
     }
 }

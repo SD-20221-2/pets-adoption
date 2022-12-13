@@ -1,10 +1,12 @@
 package socket;
 
-import java.io.Serializable;
-import java.rmi.Remote;
+public class Funcionario {
 
-public interface Funcionario extends Remote, Serializable {
-
-    double recalcularSalario(String cargo, double salario);
-
+    public double recalcularSalario(String cargo, double salario) {
+        return switch (cargo) {
+            case "operador" -> salario * 1.2;
+            case "programador" -> salario * 1.18;
+            default -> salario;
+        };
+    }
 }

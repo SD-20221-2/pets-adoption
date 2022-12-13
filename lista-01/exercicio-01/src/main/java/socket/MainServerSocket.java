@@ -17,7 +17,7 @@ public class MainServerSocket {
                      var input = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
                     var params = input.readLine().split(",");
-                    var funcionario = new FuncionarioImpl();
+                    var funcionario = new Funcionario();
 
                     var salario = funcionario.recalcularSalario(params[0], Double.parseDouble(params[1]));
                     output.printf("%.2f\n", salario);
