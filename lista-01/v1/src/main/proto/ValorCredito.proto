@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message ValorCreditoRequest {
+  double saldoMedio = 1;
+}
+
+message ValorCreditoResponse {
+  double valorCredito = 1;
+}
+
+service ValorCreditoService {
+  rpc calcularCredito(ValorCreditoRequest) returns (ValorCreditoResponse);
+}

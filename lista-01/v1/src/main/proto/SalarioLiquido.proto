@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message SalarioLiquidoRequest {
+  string nivel = 1;
+  double salarioBruto = 2;
+  int32 nDependentes = 3;
+}
+
+message SalarioLiquidoResponse {
+  double salarioLiquido = 1;
+}
+
+service SalarioLiquidoService {
+  rpc calcularSalarioLiquido(SalarioLiquidoRequest) returns (SalarioLiquidoResponse);
+}

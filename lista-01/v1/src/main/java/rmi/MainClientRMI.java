@@ -71,7 +71,7 @@ public class MainClientRMI {
         System.out.print("Idade: ");
         var idade = scanner.nextInt();
 
-        System.out.println("Maior Idade: " + maiorIdade.isMaiorIdade(idade, sexo));
+        System.out.printf("Nome: %s\nMaior Idade: %s\n", nome, maiorIdade.isMaiorIdade(idade, sexo));
     }
 
     private static void exercicio03(Scanner scanner, String hostname, Registry registry) throws RemoteException, NotBoundException {

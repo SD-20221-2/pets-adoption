@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message PodeAposentarRequest {
+  int32 idade = 1;
+  int32 tempoServico = 2;
+}
+
+message PodeAposentarResponse {
+  bool podeAposentar = 1;
+}
+
+service PodeAposentarService {
+  rpc isPodeAposentar(PodeAposentarRequest) returns (PodeAposentarResponse);
+}

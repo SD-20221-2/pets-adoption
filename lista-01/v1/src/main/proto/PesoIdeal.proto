@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message PesoIdealRequest {
+  double altura = 1;
+  string sexo = 2;
+}
+
+message PesoIdealResponse {
+  double pesoIdeal = 1;
+}
+
+service PesoIdealService {
+  rpc calcularPesoIdeal(PesoIdealRequest) returns (PesoIdealResponse);
+}

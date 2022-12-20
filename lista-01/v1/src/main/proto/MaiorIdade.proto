@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message MaiorIdadeRequest {
+  int32 idade = 1;
+  string sexo = 2;
+}
+
+message MaiorIdadeResponse {
+  bool maiorIdade = 1;
+}
+
+service MaiorIdadeService {
+  rpc isMaiorIdade(MaiorIdadeRequest) returns (MaiorIdadeResponse);
+}

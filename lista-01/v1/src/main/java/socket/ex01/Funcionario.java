@@ -1,4 +1,4 @@
-package socket;
+package socket.ex01;
 
 public class Funcionario {
 

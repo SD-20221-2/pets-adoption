@@ -1,4 +1,4 @@
-package rpc;
+package rpc.ex01;
 
 import br.ufg.lista01.rpc.FuncionarioRequest;
 import br.ufg.lista01.rpc.FuncionarioResponse;

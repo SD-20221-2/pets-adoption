@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message AlunoAprovadoRequest {
+  double n1 = 1;
+  double n2 = 2;
+  double n3 = 3;
+}
+
+message AlunoAprovadoResponse {
+  bool aprovado = 1;
+}
+
+service AlunoAprovadoService {
+  rpc isAprovado(AlunoAprovadoRequest) returns (AlunoAprovadoResponse);
+}

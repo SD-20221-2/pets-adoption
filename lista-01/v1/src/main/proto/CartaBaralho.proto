@@ -1,0 +1,20 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package br.ufg.lista01.rpc;
+
+message CartaBaralhoRequest {
+  Carta carta = 1;
+}
+
+message Carta {
+  int32 valor = 1;
+  int32 naipe = 2;
+}
+
+message CartaBaralhoResponse {
+  string nome = 1;
+}
+
+service CartaBaralhoService {
+  rpc nomeCarta(CartaBaralhoRequest) returns (CartaBaralhoResponse);
+}

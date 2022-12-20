@@ -1,5 +1,7 @@
 package socket;
 
+import socket.ex01.Funcionario;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
