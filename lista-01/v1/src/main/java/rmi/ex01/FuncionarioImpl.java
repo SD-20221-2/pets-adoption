@@ -1,4 +1,4 @@
-package rmi;
+package rmi.ex01;
 
 public class FuncionarioImpl implements Funcionario {
 

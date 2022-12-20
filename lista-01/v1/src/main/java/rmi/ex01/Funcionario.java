@@ -1,4 +1,4 @@
-package rmi;
+package rmi.ex01;
 
 import java.io.Serializable;
 import java.rmi.Remote;
