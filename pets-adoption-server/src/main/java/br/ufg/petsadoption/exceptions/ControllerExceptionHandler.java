@@ -1,0 +1,28 @@
+package br.ufg.petsadoption.exceptions;
+
+import br.ufg.petsadoption.models.ErrorMessage;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+
+import java.time.LocalDateTime;
+
+@ControllerAdvice
+public class ControllerExceptionHandler {
+
+    @ExceptionHandler(value = {Exception.class})
+    public ResponseEntity<ErrorMessage> internalServerErrorHandler(Exception ex, WebRequest request) {
+        return ResponseEntity
+                .internalServerError()
+                .body(
+                        new ErrorMessage(
+                                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                                ex.getMessage(),
+                                request.getDescription(false),
+                                LocalDateTime.now()
+                        )
+                );
+    }
+}
