@@ -14,6 +14,10 @@ public class PetDto implements Serializable {
 
     private static final ModelMapper mapper = new ModelMapper();
 
+    static {
+        mapper.getConfiguration().setPropertyCondition(context -> context.getSource() != null);
+    }
+
     private String name;
     private LocalDate ageMonthYear;
     private String description;
@@ -51,14 +55,17 @@ public class PetDto implements Serializable {
         this.characteristics = characteristics;
     }
 
-    public PetDto fromEntity(Pet pet) {
+    public static PetDto fromEntity(Pet entity) {
         var dto = new PetDto();
-        mapper.map(pet, pet);
+        mapper.map(entity, dto);
         return dto;
     }
 
     public Pet toEntity() {
-        var entity = new Pet();
+        return toEntity(new Pet());
+    }
+
+    public Pet toEntity(Pet entity) {
         mapper.map(this, entity);
         return entity;
     }

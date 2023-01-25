@@ -37,6 +37,17 @@ public class Pet {
     @Column(name = "characteristics")
     private String characteristics;
 
+    public Pet() {
+    }
+
+    public Pet(Long id, String name, LocalDate ageMonthYear, String description, String characteristics) {
+        this.id = id;
+        this.name = name;
+        this.ageMonthYear = ageMonthYear;
+        this.description = description;
+        this.characteristics = characteristics;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

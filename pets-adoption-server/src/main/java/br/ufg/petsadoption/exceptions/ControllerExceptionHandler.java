@@ -25,4 +25,18 @@ public class ControllerExceptionHandler {
                         )
                 );
     }
+
+    @ExceptionHandler(value = {NotFoundException.class})
+    public ResponseEntity<ErrorMessage> notFoundHandler(NotFoundException ex, WebRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(
+                        new ErrorMessage(
+                                HttpStatus.NOT_FOUND.value(),
+                                ex.getMessage(),
+                                request.getDescription(false),
+                                LocalDateTime.now()
+                        )
+                );
+    }
 }

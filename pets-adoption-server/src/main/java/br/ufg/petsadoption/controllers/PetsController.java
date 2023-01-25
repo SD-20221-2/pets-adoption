@@ -31,13 +31,14 @@ public class PetsController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable String id, @RequestBody PetDto pet) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PetDto pet) {
+        petsService.update(id, pet);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PetDto> get(@PathVariable String id) {
-        return ResponseEntity.ok().build();
+    public ResponseEntity<PetDto> get(@PathVariable Long id) {
+        return ResponseEntity.ok().body(petsService.find(id));
     }
 
     @GetMapping("/all")
@@ -46,7 +47,7 @@ public class PetsController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         return ResponseEntity.ok().build();
     }
 }
