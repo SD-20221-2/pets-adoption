@@ -27,7 +27,7 @@ class PetsServiceImplTest {
         Mockito.when(
                 repositoryMock.findById(Mockito.anyLong())
         ).thenReturn(
-                Optional.of(new Pet(1L, "Beto", LocalDate.of(2017, 7, 1), "lhasa apso", "pelo branco, pequeno porte"))
+                Optional.of(new Pet(1L, "Beto", "lhasa apso", "pelo branco, pequeno porte", LocalDate.of(2017, 7, 1)))
         );
 
         var dto = new PetDto();
@@ -38,7 +38,7 @@ class PetsServiceImplTest {
         Mockito.verify(repositoryMock).save(petArgumentCaptor.capture());
 
         var got = petArgumentCaptor.getValue();
-        var want = new Pet(1L, "Beto", LocalDate.of(2017, 7, 1), "lhasa apso", "pelo branco, pequeno porte, vacinado");
+        var want = new Pet(1L, "Beto", "lhasa apso", "pelo branco, pequeno porte, vacinado", LocalDate.of(2017, 7, 1));
 
         Assertions.assertThat(got).usingRecursiveComparison().isEqualTo(want);
 

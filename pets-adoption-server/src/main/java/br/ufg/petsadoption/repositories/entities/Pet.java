@@ -28,24 +28,25 @@ public class Pet {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "age_month_year")
-    private LocalDate ageMonthYear;
-
-    @Column(name = "description")
-    private String description;
+    @Column(name = "breed")
+    private String breed;
 
     @Column(name = "characteristics")
     private String characteristics;
 
+
+    @Column(name = "age_month_year")
+    private LocalDate ageMonthYear;
+
     public Pet() {
     }
 
-    public Pet(Long id, String name, LocalDate ageMonthYear, String description, String characteristics) {
+    public Pet(Long id, String name, String breed, String characteristics, LocalDate ageMonthYear) {
         this.id = id;
         this.name = name;
-        this.ageMonthYear = ageMonthYear;
-        this.description = description;
+        this.breed = breed;
         this.characteristics = characteristics;
+        this.ageMonthYear = ageMonthYear;
     }
 
     public void setId(Long id) {
@@ -64,20 +65,13 @@ public class Pet {
         this.name = name;
     }
 
-    public LocalDate getAgeMonthYear() {
-        return ageMonthYear;
+
+    public String getBreed() {
+        return breed;
     }
 
-    public void setAgeMonthYear(LocalDate ageMonthYear) {
-        this.ageMonthYear = ageMonthYear;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
     public String getCharacteristics() {
@@ -86,5 +80,13 @@ public class Pet {
 
     public void setCharacteristics(String characteristics) {
         this.characteristics = characteristics;
+    }
+
+    public LocalDate getAgeMonthYear() {
+        return ageMonthYear;
+    }
+
+    public void setAgeMonthYear(LocalDate ageMonthYear) {
+        this.ageMonthYear = ageMonthYear;
     }
 }

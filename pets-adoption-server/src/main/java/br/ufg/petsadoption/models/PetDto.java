@@ -19,9 +19,9 @@ public class PetDto implements Serializable {
     }
 
     private String name;
-    private LocalDate ageMonthYear;
-    private String description;
+    private String breed;
     private String characteristics;
+    private LocalDate ageMonthYear;
 
     public String getName() {
         return name;
@@ -31,20 +31,12 @@ public class PetDto implements Serializable {
         this.name = name;
     }
 
-    public LocalDate getAgeMonthYear() {
-        return ageMonthYear;
+    public String getBreed() {
+        return breed;
     }
 
-    public void setAgeMonthYear(LocalDate ageMonthYear) {
-        this.ageMonthYear = ageMonthYear;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
     public String getCharacteristics() {
@@ -53,6 +45,14 @@ public class PetDto implements Serializable {
 
     public void setCharacteristics(String characteristics) {
         this.characteristics = characteristics;
+    }
+
+    public LocalDate getAgeMonthYear() {
+        return ageMonthYear;
+    }
+
+    public void setAgeMonthYear(LocalDate ageMonthYear) {
+        this.ageMonthYear = ageMonthYear;
     }
 
     public static PetDto fromEntity(Pet entity) {

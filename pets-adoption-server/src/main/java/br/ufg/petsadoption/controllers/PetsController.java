@@ -1,7 +1,9 @@
 package br.ufg.petsadoption.controllers;
 
+import br.ufg.petsadoption.models.Message;
 import br.ufg.petsadoption.models.PetDto;
 import br.ufg.petsadoption.services.PetsService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -25,15 +28,19 @@ public class PetsController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody PetDto pet) {
+    public ResponseEntity<Message> create(@RequestBody PetDto pet) {
         petsService.create(pet);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(
+                new Message(HttpStatus.OK.value(), "created", LocalDateTime.now())
+        );
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PetDto pet) {
+    public ResponseEntity<Message> update(@PathVariable Long id, @RequestBody PetDto pet) {
         petsService.update(id, pet);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(
+                new Message(HttpStatus.OK.value(), "updated", LocalDateTime.now())
+        );
     }
 
     @GetMapping("/{id}")
@@ -43,11 +50,14 @@ public class PetsController {
 
     @GetMapping("/all")
     public ResponseEntity<List<PetDto>> getAll() {
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(petsService.findAll());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Message> delete(@PathVariable Long id) {
+        petsService.delete(id);
+        return ResponseEntity.ok().body(
+                new Message(HttpStatus.OK.value(), "deleted", LocalDateTime.now())
+        );
     }
 }
