@@ -1,18 +1,20 @@
-import HeaderExampleBlock from './components/Buttons';
-import ButtonExampleEmphasis from './components/Header';
+import HeaderExampleBlock from './components/Header';
 import React  from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './pages/Home'
+import Adocao from './pages/Adocao'
 
 function App() {
   return (
     <div className="App">
-      <ButtonExampleEmphasis/>
-      <h2>Adote um bichinho!</h2>
-      <h2>Sem burocracia e</h2>
-      <h2>com Segurança.</h2>
-      <h3>Com Segurança para o pet e para você, qui você pode facilmente encontra</h3>
-      <h3>um novo bichinho para fazer parte da familia.</h3>
-      <HeaderExampleBlock />
+      <BrowserRouter>
+        <HeaderExampleBlock/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/adocao' element={<Adocao/>}/>
+          </Routes>
+        </BrowserRouter>
     </div>
   );
 }
