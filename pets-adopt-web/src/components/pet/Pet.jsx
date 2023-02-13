@@ -4,6 +4,7 @@ const Pet = ({ pet }) => {
   return (
     <div>
       <p>{pet.name}</p>
+      <p>{pet.characteristics}</p>
     </div>
   )
 }
