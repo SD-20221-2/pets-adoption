@@ -18,10 +18,20 @@ public class PetDto implements Serializable {
         mapper.getConfiguration().setPropertyCondition(context -> context.getSource() != null);
     }
 
+    private Long id;
     private String name;
     private String breed;
+    private String type;
     private String characteristics;
     private LocalDate ageMonthYear;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -37,6 +47,14 @@ public class PetDto implements Serializable {
 
     public void setBreed(String breed) {
         this.breed = breed;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getCharacteristics() {
