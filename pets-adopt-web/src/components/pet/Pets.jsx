@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import HeaderExampleBlock from '../Header';
+import HeaderExampleBlock from '../Header'
 import { petActions } from '../../actions/pet.actions'
 import Pet from './Pet'
 
@@ -14,9 +14,9 @@ const Pets = () => {
 
   return (
     <div>
-      <HeaderExampleBlock/>
+      <HeaderExampleBlock />
       {pets.map(pet => (
-        <Pet ket={pet.id} pet={pet} />
+        <Pet key={pet.id} pet={pet} />
       ))}
     </div>
   )

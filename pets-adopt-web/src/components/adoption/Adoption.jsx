@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NewPet from '../pet/NewPet'
-import HeaderExampleBlock from '../Header';
+import HeaderExampleBlock from '../Header'
 import './Adoption.css'
 import { Button } from 'semantic-ui-react'
 
@@ -8,15 +8,19 @@ const Adoption = () => {
   const [clicked, setClicked] = useState(false)
   return (
     <>
-    <HeaderExampleBlock/>
+      <HeaderExampleBlock />
       {!clicked ? (
         <div>
-          <Button  primary floated='left' onClick={() => setClicked(true)} >Cadastrar Pet</Button>
+          <Button primary floated="left" onClick={() => setClicked(true)}>
+            Cadastrar Pet
+          </Button>
         </div>
       ) : (
         <div>
-          <Button  primary floated='left' onClick={() => setClicked(false)}>&times;</Button>
-          <NewPet clear={setClicked}/>
+          <Button primary floated="left" onClick={() => setClicked(false)}>
+            &times;
+          </Button>
+          <NewPet clear={setClicked} />
         </div>
       )}
     </>
