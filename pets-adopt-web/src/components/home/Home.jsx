@@ -1,8 +1,10 @@
 import React from 'react'
+import HeaderExampleBlock from '../Header'
 
 const Home = () => {
   return (
     <div>
+      <HeaderExampleBlock />
       <h2>Adote um bichinho!</h2>
       <h2>Sem burocracia e</h2>
       <h2>com Segurança.</h2>

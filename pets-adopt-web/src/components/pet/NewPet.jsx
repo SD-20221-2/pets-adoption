@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { Form, Input, Radio, TextArea } from 'semantic-ui-react'
 
 import { petActions } from '../../actions/pet.actions'
 
-const NewPet = ({clear}) => {
+const NewPet = ({ clear }) => {
   const dispatch = useDispatch()
 
   const [name, setName] = useState('')
@@ -43,66 +44,62 @@ const NewPet = ({clear}) => {
 
   return (
     <div>
-      <form onSubmit={save}>
-        <label htmlFor="name">Nome</label>
-        <input
-          type="text"
-          placeholder="opcional"
-          name={name}
-          value={name}
-          onChange={onChange(setName)}
-        />
-        <br />
-        <label htmlFor="breed">Raça</label>
-        <input
-          type="text"
-          placeholder="opcional"
-          name={breed}
-          value={breed}
-          onChange={onChange(setBreed)}
-        />
-        <br />
-        <input
-          type="radio"
-          id="dog"
-          name="type"
-          value="dog"
-          onChange={onChange(setType)}
-          checked
-        />
-        <label htmlFor="dog"> Cachorro</label>
-        <input
-          type="radio"
-          id="cat"
-          name="type"
-          value="cat"
-          onChange={onChange(setType)}
-        />
-        <label htmlFor="cat"> Gato</label>
-        <br />
-        <label htmlFor="age_month_year">Mês/Ano de Nascimento</label>
-        <br />
-        <input
+      <Form onSubmit={save}>
+        <Form.Group widths="equal">
+          <Form.Field
+            control={Input}
+            label="Nome"
+            placeholder="opcional"
+            value={name}
+            onChange={onChange(setName)}
+          />
+          <Form.Field
+            control={Input}
+            label="Raça"
+            placeholder="opcional"
+            value={breed}
+            onChange={onChange(setBreed)}
+          />
+        </Form.Group>
+        <Form.Group inline>
+          <Form.Field
+            control={Radio}
+            label="Cachorro"
+            id="dog"
+            name="type"
+            value="dog"
+            onChange={onChange(setType)}
+            checked
+          />
+          <Form.Field
+            control={Radio}
+            label="Gato"
+            type="radio"
+            id="cat"
+            name="type"
+            value="cat"
+            onChange={onChange(setType)}
+          />
+        </Form.Group>
+        <Form.Field
+          control={Input}
           type="date"
           placeholder="mês/ano aproximado de nascimento"
           name="ageMonthYear"
           value={ageMonthYear}
           onChange={onChange(setAgeMonthYear)}
         />
-        <br />
-        <label htmlFor="characteristics">Características</label>
-        <br />
-        <textarea
-          placeholder="descrição do animal"
-          name="characteristics"
+        <Form.Field
+          control={TextArea}
+          label=" Caracteristicas"
+          placeholder="Descrição do Animal"
           value={characteristics}
           onChange={onChange(setCharacteristics)}
         />
-        <br />
-        <button type="submit" onClick={() => {}}>
+        <Form.Button type="submit" onClick={() => {}}>
           Salvar
-        </button>
-      </form>
+        </Form.Button>
+      </Form>
     </div>
   )
 }

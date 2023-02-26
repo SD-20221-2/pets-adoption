@@ -1,24 +1,28 @@
 import React from 'react'
-import { Header, Segment } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Header, Segment, Image, Button } from 'semantic-ui-react'
 
 const HeaderExampleFloating = () => (
-  <Segment clearing>
-    <Header as="h2" floated="right">
-      Botão Login
-    </Header>
-    <Header as="h2" floated="right">
+ <Segment clearing>
+    <Button  primary floated='right' >Botão Login</Button>
+    <Link to="/pets">
+    <Header as='h2' floated='right' href='mailto:jack@semantic-ui.com'>
       Serviços de Pet
     </Header>
-    <Header as="h2" floated="right">
+    </Link>
+    <Link to="/adoption">
+    <Header as='h2' floated='right'>
       Adoção
     </Header>
-    <Header as="h2" floated="right">
+    </Link>
+    <Link to="/">
+    <Header as='h2' floated='right'>
       Home
     </Header>
-    <Header as="h2" floated="left">
-      Icone
-    </Header>
+    </Link>
+    <Image src={"https://static.petz.com.br/images/logo.png"} size='tiny' />
   </Segment>
 )
 
 export default HeaderExampleFloating
+
