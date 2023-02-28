@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import NewPet from '../pet/NewPet'
-import HeaderExampleBlock from '../Header'
 import './Adoption.css'
 import { Button } from 'semantic-ui-react'
 
@@ -8,7 +7,6 @@ const Adoption = () => {
   const [clicked, setClicked] = useState(false)
   return (
     <>
-      <HeaderExampleBlock />
       {!clicked ? (
         <div>
           <Button primary floated="left" onClick={() => setClicked(true)}>

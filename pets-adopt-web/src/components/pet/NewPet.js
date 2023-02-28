@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Form, Input, Radio, TextArea } from 'semantic-ui-react'
+import styles from '../home/Home.css'
 
 import { petActions } from '../../actions/pet.actions'
 
@@ -43,7 +44,7 @@ const NewPet = ({ clear }) => {
   }
 
   return (
-    <div>
+    <div className={styles.homeContainer}>
       <Form onSubmit={save}>
         <Form.Group widths="equal">
           <Form.Field

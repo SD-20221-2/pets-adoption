@@ -6,11 +6,13 @@ import './App.css'
 import Adoption from './components/adoption/Adoption'
 import Home from './components/home/Home'
 import Message from './components/messages/Message'
+import HeaderExampleBlock from './components/Header'
 import Pets from './components/pet/Pets'
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <HeaderExampleBlock/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/adoption" element={<Adoption />} />
