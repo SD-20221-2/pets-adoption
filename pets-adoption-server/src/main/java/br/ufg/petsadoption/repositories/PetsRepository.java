@@ -1,6 +1,6 @@
 package br.ufg.petsadoption.repositories;
 
-import br.ufg.petsadoption.repositories.entities.Pet;
+import br.ufg.petsadoption.entities.Pet;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

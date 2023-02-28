@@ -1,7 +1,7 @@
 package br.ufg.petsadoption.controllers;
 
 import br.ufg.petsadoption.models.Message;
-import br.ufg.petsadoption.models.PetDto;
+import br.ufg.petsadoption.dtos.PetDto;
 import br.ufg.petsadoption.services.PetsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/pets")
-@CrossOrigin(origins = "http://localhost:3000")
 public class PetsController {
 
     private final PetsService petsService;
@@ -22,16 +21,16 @@ public class PetsController {
     }
 
     @PostMapping
-    public ResponseEntity<Message> create(@RequestBody PetDto pet) {
-        petsService.create(pet);
+    public ResponseEntity<Message> create(@RequestBody PetDto dto) {
+        petsService.create(dto);
         return ResponseEntity.ok().body(
                 new Message(HttpStatus.OK.value(), "created", LocalDateTime.now())
         );
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Message> update(@PathVariable Long id, @RequestBody PetDto pet) {
-        petsService.update(id, pet);
+    public ResponseEntity<Message> update(@PathVariable Long id, @RequestBody PetDto dto) {
+        petsService.update(id, dto);
         return ResponseEntity.ok().body(
                 new Message(HttpStatus.OK.value(), "updated", LocalDateTime.now())
         );

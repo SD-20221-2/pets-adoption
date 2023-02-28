@@ -2,24 +2,23 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import './App.css'
-
-import Adoption from './components/adoption/Adoption'
 import Home from './components/home/Home'
-import Message from './components/messages/Message'
-import Pets from './components/pet/Pets'
+import Login from './components/login/Login'
+import PetList from './components/pets/PetList'
+import PetForm from './components/pets/PetForm'
+
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/adoption" element={<Adoption />} />
-        <Route path="/pets" element={<Pets />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Login logout={true} />} />
+        <Route path="/pets" element={<PetList />} />
+        <Route path="/pets/new" element={<PetForm />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <footer>
-        <Message />
-      </footer>
     </div>
   )
 }

@@ -1,0 +1,28 @@
+.pet-form-root {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+
+.per-form-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.pet-form-container {
+  display: flex;
+}
+
+.pet-form-img {
+  width: 340px;
+}
+
+.pet-form {
+  width: 660px;
+  margin-left: 1rem;
+}
+
+.pet-button {
+  width: 660px;
+  height: 50px;
+}

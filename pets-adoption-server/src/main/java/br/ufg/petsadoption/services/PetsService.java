@@ -1,6 +1,6 @@
 package br.ufg.petsadoption.services;
 
-import br.ufg.petsadoption.models.PetDto;
+import br.ufg.petsadoption.dtos.PetDto;
 
 import java.util.List;
 

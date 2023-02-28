@@ -1,0 +1,20 @@
+.home-container {
+  display: flex;
+}
+
+.home-titles {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 6em;
+}
+
+.home-img {
+  margin-top: 4rem;
+  margin-right: 2rem;
+  height: 350px;
+}
+  
+.home-titles-h1 {
+  font-size: 6rem;
+  font-family: "Road Rage", cursive;
+}

@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pets_adoption
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update # Hibernate ddl auto (create, create-drop, validate, update)
+
+jwt:
+  auth:
+    secret-key: 1ay$b!++6VLSOg?FRow3
+    app-name: pets-adoption
+    experies-in-seconds: 36000
+    algorithm: HS256
