@@ -3,6 +3,7 @@ package br.ufg.petsadoption.exceptions;
 import br.ufg.petsadoption.models.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -33,6 +34,20 @@ public class ControllerExceptionHandler {
                 .body(
                         new ErrorMessage(
                                 HttpStatus.NOT_FOUND.value(),
+                                ex.getMessage(),
+                                request.getDescription(false),
+                                LocalDateTime.now()
+                        )
+                );
+    }
+
+    @ExceptionHandler(value = {AuthenticationException.class})
+    public ResponseEntity<ErrorMessage> unauthorizedHandler(AuthenticationException ex, WebRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(
+                        new ErrorMessage(
+                                HttpStatus.UNAUTHORIZED.value(),
                                 ex.getMessage(),
                                 request.getDescription(false),
                                 LocalDateTime.now()

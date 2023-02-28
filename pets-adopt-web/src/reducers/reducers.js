@@ -1,11 +1,11 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
-import { petReducer } from "./pet.reducer";
-import { messageReducer } from './message.reducer'
+import { petReducer } from './pet.reducer'
+import { loginReducer } from './login.reducer'
 
 const reducers = combineReducers({
-  petReducer,
-  messageReducer
+  loginReducer,
+  petReducer
 })
 
 export { reducers }
