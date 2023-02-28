@@ -42,6 +42,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void create(UserDto dto) {
         var user = new User();
+        user.setFullname(dto.getFullname());
+        user.setUsername(dto.getUsername());
         user.setEmail(dto.getEmail());
         user.setPhone(dto.getPhone());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));

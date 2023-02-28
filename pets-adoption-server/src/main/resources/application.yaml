@@ -15,5 +15,5 @@ jwt:
   auth:
     secret-key: 1ay$b!++6VLSOg?FRow3
     app-name: pets-adoption
-    experies-in-seconds: 3600
+    experies-in-seconds: 36000
     algorithm: HS256

@@ -2,10 +2,19 @@ package br.ufg.petsadoption.dtos;
 
 public class UserDto {
 
+    private String fullname;
     private String username;
     private String password;
     private String email;
     private String phone;
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
 
     public String getUsername() {
         return username;

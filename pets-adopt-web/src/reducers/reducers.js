@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
 
 import { petReducer } from './pet.reducer'
-import { loginReducer } from './login.reducer'
+import { loginReducer, newUserReducer } from './login.reducer'
 
 const reducers = combineReducers({
   loginReducer,
-  petReducer
+  petReducer,
+  newUserReducer
 })
 
 export { reducers }

@@ -1,22 +1,45 @@
 import { loginActionTypes } from "../constants/login";
 
-const INITAL_STATE = {
+const INITAL_STATE_LOGIN = {
   token: "",
-  error: "",
+  isAuthenticated: false,
+  message: {},
   loading: false
 }
 
-const loginReducer = (state = INITAL_STATE, actions) => {
+const loginReducer = (state = INITAL_STATE_LOGIN, actions) => {
   switch (actions.type) {
-    case loginActionTypes.LOGIN:
-      return { ...state, error: '', loading: true }
     case loginActionTypes.LOGIN_SUCCESS:
-      return { ...state, error: '', loading: false, token: actions.payload }
-    case loginActionTypes.LOGIN_FAIL:
-      return { ...state, error: actions.payload, loading: false }
+      return { ...state, message: {}, loading: false, token: actions.payload, isAuthenticated: true }
+
+    case loginActionTypes.LOGIN_FAIL || loginActionTypes.INVALID_TOKEN:
+      return { ...state, message: actions.payload, loading: false, token: '', isAuthenticated: false }
+
+    case loginActionTypes.VALID_TOKEN:
+      return { ...state, message: {}, loading: false, isAuthenticated: true }
+
     default:
       return state
   }
 }
 
-export { loginReducer }
+const INITAL_STATE_NEW_USER = {
+  user: {},
+  message: {},
+  loading: false
+}
+
+const newUserReducer = (state = INITAL_STATE_NEW_USER, actions) => {
+  switch (actions.type) {
+    case loginActionTypes.CREATE_SUCCESS:
+      return { ...state, message: {}, loading: false, user: actions.payload }
+
+    case loginActionTypes.CREATE_FAIL:
+      return { ...state, message: actions.payload, loading: false, user: {} }
+
+    default:
+      return state
+  }
+}
+
+export { loginReducer, newUserReducer }

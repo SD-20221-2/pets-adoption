@@ -40,7 +40,8 @@ public class SecurityConfiguration {
                         .requestMatchers(
                                 "/h2-console/**",
                                 "/api/v1/auth/login",
-                                "/api/v1/auth/create"
+                                "/api/v1/auth/create",
+                                "/api/v1/auth/valid"
                         )
                         .permitAll()
                         .anyRequest()

@@ -8,6 +8,7 @@ import br.ufg.petsadoption.entities.User;
 import br.ufg.petsadoption.models.Message;
 import br.ufg.petsadoption.services.JWTService;
 import br.ufg.petsadoption.services.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -56,6 +57,17 @@ public class LoginController {
         return ResponseEntity.ok().body(
                 new Message(HttpStatus.OK.value(), "created", LocalDateTime.now())
         );
+    }
+
+    @GetMapping("/valid")
+    public ResponseEntity<?> valid(@RequestHeader("Authorization") String authorization) {
+        var token = StringUtils.substringAfter(authorization, "Bearer ");
+        var valid = jwtService.isExpired(token);
+        var responseEntity = valid ?
+                ResponseEntity.ok() :
+                ResponseEntity.status(HttpStatus.UNAUTHORIZED);
+
+        return responseEntity.build();
     }
 
     @GetMapping("/userinfo")

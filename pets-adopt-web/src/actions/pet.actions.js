@@ -10,15 +10,14 @@ const petActions = {
         body: JSON.stringify(pet)
       })
         .then(response => response.json())
-        .then(result => {
+        .then(() => {
           dispatch({ type: petActionTypes.SAVE, payload: pet })
-          // dispatch({ type: messageActionTypes.SUCCESS, payload: result })
         })
         .catch(
-        //   error => {
-        //   dispatch({ type: messageActionTypes.ERROR, payload: error })
-        // }
-      )
+          error => {
+            console.log(error)
+          }
+        )
     }
   },
 
@@ -29,14 +28,18 @@ const petActions = {
         headers: { 'Content-Type': 'application/json', 'Authorization': JWTUtils.bearer() }
       })
         .then(response => response.json())
-        .then(body =>
-          dispatch({ type: petActionTypes.LIST, payload: [...body] })
-        )
+        .then(response => check(response))
         .catch(
-        //   error => {
-        //   dispatch({ type: messageActionTypes.ERROR, payload: error })
-        // }
-      )
+          error => {
+            console.log(error)
+          }
+        )
+
+      function check(response) {
+        return response.statusCode !== 200 ?
+          dispatch({ type: petActionTypes.LIST, payload: [...response] }) :
+          dispatch({ type: petActionTypes.LIST })
+      }
     }
   }
 }

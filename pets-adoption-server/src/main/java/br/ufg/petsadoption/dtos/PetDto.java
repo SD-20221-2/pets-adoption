@@ -18,6 +18,7 @@ public class PetDto implements Serializable {
         mapper.getConfiguration().setPropertyCondition(context -> context.getSource() != null);
     }
 
+    private Long id;
     private String nome;
     private String raca;
     private String tipoAnimal;
@@ -28,6 +29,14 @@ public class PetDto implements Serializable {
     private LocalDate dataNascimento;
     private Boolean vacinado;
     private Boolean castrado;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
